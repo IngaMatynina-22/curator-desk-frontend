@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "curatordesk-gui"
+version = "0.1.0"
+description = "CuratorDesk — PyQt6 desktop GUI for academic group curator"
+requires-python = ">=3.11"
+dependencies = [
+    "PyQt6>=6.6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.0",
+    "pytest-qt>=4.4.0",
+    "pytest-cov>=6.0.0",
+]
+
+[project.scripts]
+curatordesk = "main:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+qt_api = "pyqt6"
+
+[tool.setuptools.packages.find]
+include = ["gui*"]
